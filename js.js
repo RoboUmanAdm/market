@@ -34,9 +34,9 @@ if (localStorage.getItem('card')){
 }
 
 function fun() {
-    console.log('Функція')
     cardProd.classList.toggle('hide')
 }
+
 function addProductTocard(id){
     let product = productsArray.find(function (p){
         return p.id == id;
@@ -50,7 +50,7 @@ function addProductTocard(id){
     },500);
 }
 function drawCardProducts(){
-    if(card.length === 0) return cardProd.innerHTML = 'Empty';
+    if(card.length === 0) return cardProd.innerHTML = `Empty`;
     cardProd.innerHTML = null;
     let sum = 0;
     card.forEach(function(p){
@@ -67,6 +67,6 @@ function drawCardProducts(){
 }
 function buyAll(){
     card = []
-    cardProd.innerHTML = 'Грошики запалтити';
+    cardProd.innerHTML = `Грошики запалтити`;
     localStorage.setItem("card", '[]');
 }
