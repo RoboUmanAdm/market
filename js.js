@@ -26,7 +26,47 @@ fetch(url + '/products')
         });
     });
 
+let cardProd = document.getElementById('card-product');
+let card = [];
+if (localStorage.getItem('card')){
+    card = JSON.parse(localStorage.getItem('card'));
+    drawCardProducts();
+}
 
 function fun() {
     console.log('Функція')
+    cardProd.classList.toggle('hide')
+}
+function addProductTocard(id){
+    let product = productsArray.find(function (p){
+        return p.id == id;
+    })
+    card.push(product);
+    drawCardProducts();
+    localStorage.setItem("card", JSON.stringify(card))
+    document.getElementById('card-button').classList.add('active');
+    setTimeout(function(){
+        document.getElementById('card-button').classList.remove('active')
+    },500);
+}
+function drawCardProducts(){
+    if(card.length === 0) return cardProd.innerHTML = 'Empty';
+    cardProd.innerHTML = null;
+    let sum = 0;
+    card.forEach(function(p){
+        cardProd.innerHTML +=`
+        <p><img src = "${p.photo_url}"> ${p.price} | ${p.price} грн. </p>
+        <hr>
+        `;  
+        sum +=p.price;
+    });
+    cardProd.innerHTML+=`
+        <p>Total price: ${sum} грн. </p>
+        <button onclick="buyAll()">Buy</button>
+    `;
+}
+function buyAll(){
+    card = []
+    cardProd.innerHTML = 'Грошики запалтити';
+    localStorage.setItem("card", '[]');
 }
