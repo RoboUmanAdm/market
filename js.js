@@ -1,6 +1,8 @@
 let productGrid = document.getElementById('product-grid');
 let productsArray = [];
-let url = 'https://my-json-server.typicode.com/RoboUmanAdm/market';
+const url = 'https://market-5404.restdb.io/rest/products';
+
+
 
 
 fetch(url + '/products')
