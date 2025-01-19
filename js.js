@@ -16,9 +16,9 @@ fetch(url + '/products', {
 .then(async function (responce){
     const result = await responce.json()
     console.log(result)
-    productsAray = await response.json();
+    productsArray = await response.json();
         productGrid.innerHTML = null; // Очищення контейнера
-        productsAray.forEach(p => {
+        productsArray.forEach(p => {
             productsArray.push(p) ;
             let pElem = document.createElement('div');
             pElem.classList.add('product');
