@@ -1,6 +1,7 @@
 let productGrid = document.getElementById('product-grid');
 let productsArray = [];
 const url = 'https://market-5404.restdb.io/rest';
+let API_KEY;
 
 const my_headers = {
     "Content-Type": "application/json",
