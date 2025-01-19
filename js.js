@@ -13,9 +13,9 @@ fetch(url + '/products', {
     method: "GET",
     headers: my_headers
 })
-.then(async function (responce){
-    const result = await responce.json()
-    console.log(result)
+.then(async function (response){
+    const result = await response.json();
+    console.log(result);
     productsArray = await response.json();
         productGrid.innerHTML = null; // Очищення контейнера
         productsArray.forEach(p => {
